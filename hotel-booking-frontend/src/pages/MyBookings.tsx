@@ -1,6 +1,6 @@
 import { useQueryWithLoading } from "../hooks/useLoadingHooks";
 import * as apiClient from "../api-client";
-import type { BookingType, HotelWithBookingsType } from "../../../shared/types";
+import type { BookingType, HotelWithBookingsType } from "../shared/types";
 import { Badge } from "../components/ui/badge";
 import { Button } from "../components/ui/button";
 import {

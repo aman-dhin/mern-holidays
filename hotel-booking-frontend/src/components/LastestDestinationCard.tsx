@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { HotelType } from "../../../shared/types";
+import { HotelType } from "../shared/types";
 import { MapPin, Star, Users } from "lucide-react";
 import { Badge } from "./ui/badge";
 import { useState } from "react";
