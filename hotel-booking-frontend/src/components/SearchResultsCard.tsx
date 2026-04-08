@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { HotelType } from "../../../shared/types";
 import { AiFillStar } from "react-icons/ai";
+import { toggleWishlist } from "../api-client";
+import { Heart } from "lucide-react";
 import {
   MapPin,
   Building2,
@@ -22,6 +24,7 @@ type Props = {
 };
 
 const SearchResultsCard = ({ hotel }: Props) => {
+  
   const getFacilityIcon = (facility: string) => {
     const iconMap: { [key: string]: any } = {
       "Free WiFi": Wifi,
@@ -42,11 +45,19 @@ const SearchResultsCard = ({ hotel }: Props) => {
       <div className="grid grid-cols-1 xl:grid-cols-[2fr_3fr] gap-0 w-full h-full">
         {/* Image Section */}
         <div className="relative overflow-hidden h-64 xl:h-[500px]">
+
           <img
             src={hotel.imageUrls[0]}
             className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
           />
-
+       <div className="absolute bottom-4 right-4 z-50">
+    <button
+      onClick={() => toggleWishlist(hotel._id)}
+      className="bg-white p-3 rounded-full shadow-lg text-red-500 text-xl hover:scale-110 transition"
+    >
+      ❤️
+    </button>
+  </div>
           {/* Overlay Badges */}
           <div className="absolute top-4 left-4 flex flex-col space-y-2">
             <div className="bg-primary-600 text-white rounded-full px-3 py-1">
@@ -60,6 +71,7 @@ const SearchResultsCard = ({ hotel }: Props) => {
           </div>
 
           {/* Star Rating Badge */}
+         
           <div className="absolute top-4 right-4">
             <div className="bg-white/90 backdrop-blur-sm rounded-full px-3 py-1 flex items-center space-x-1">
               <AiFillStar className="w-4 h-4 text-yellow-500" />

@@ -20,6 +20,7 @@ import morgan from "morgan";
 import compression from "compression";
 import rateLimit from "express-rate-limit";
 
+
 // Environment Variables Validation
 const requiredEnvVars = [
   "MONGODB_CONNECTION_STRING",
@@ -223,8 +224,7 @@ app.use(
 );
 
 // Dynamic Port Configuration (for Coolify/VPS and local development)
-const PORT = process.env.PORT || 5000;
-
+const PORT = parseInt(process.env.PORT || "5000", 10);
 const backendBaseUrl =
   process.env.BACKEND_URL?.replace(/\/$/, "") || `http://localhost:${PORT}`;
 

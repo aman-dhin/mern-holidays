@@ -14,7 +14,7 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-gradient-to-r from-primary-600 to-primary-700 shadow-large sticky top-0 z-50 h-[72px] flex items-center shrink-0">
+    <header className="bg-gradient-to-r from-purple-500 to-pink-500 shadow-large sticky top-0 z-50 h-[72px] flex items-center shrink-0">
       <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="flex justify-between items-center h-full">
           <button
@@ -25,7 +25,7 @@ const Header = () => {
               <Building2 className="w-6 h-6 text-primary-600" />
             </div>
             <span className="text-2xl font-bold text-white tracking-tight group-hover:text-primary-100 transition-colors">
-              MernHolidays
+             Magic holidays 
             </span>
           </button>
           <div className="md:hidden">

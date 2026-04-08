@@ -34,6 +34,12 @@ const userSchema = new mongoose.Schema(
     // Analytics and tracking fields
     totalBookings: { type: Number, default: 0 },
     totalSpent: { type: Number, default: 0 },
+    wishlist: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Hotel",
+      },
+    ],
     lastLogin: { type: Date },
     isActive: { type: Boolean, default: true },
     emailVerified: { type: Boolean, default: false },

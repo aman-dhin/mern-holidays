@@ -15,8 +15,12 @@ const getBaseURL = () => {
     return "https://hotel-booking-backend.duckdns.org";
   }
 
-  if (window.location.hostname === "localhost") {
-    return "http://localhost:5000";
+  if (
+    window.location.hostname === "localhost" ||
+    window.location.hostname === "127.0.0.1" ||
+    window.location.hostname === "::1"
+  ) {
+    return "http://localhost:5001";
   }
 
   // Default to production (VPS backend)

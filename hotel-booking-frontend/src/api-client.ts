@@ -241,3 +241,12 @@ export const fetchBusinessInsightsPerformance = async () => {
   const response = await axiosInstance.get("/api/business-insights/system-stats/public");
   return response.data;
 };
+export const toggleWishlist = async (hotelId: string) => {
+  const res = await axiosInstance.post(`/api/users/wishlist/${hotelId}`);
+  return res.data;
+};
+
+export const getWishlist = async () => {
+  const res = await axiosInstance.get("/api/users/wishlist");
+  return res.data;
+};

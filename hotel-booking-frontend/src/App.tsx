@@ -23,6 +23,7 @@ import ApiDocs from "./pages/ApiDocs";
 import ApiStatus from "./pages/ApiStatus";
 import AnalyticsDashboard from "./pages/AnalyticsDashboard";
 import AuthCallback from "./pages/AuthCallback";
+import Wishlist from "./pages/Wishlist";
 
 const App = () => {
   const { isLoggedIn } = useAppContext();
@@ -119,7 +120,7 @@ const App = () => {
             </Layout>
           }
         />
-
+    <Route path="/wishlist" element={<Wishlist />} />
         {isLoggedIn && (
           <>
             <Route

@@ -5,7 +5,7 @@ import * as apiClient from "../api-client";
 import { loadStripe, Stripe } from "@stripe/stripe-js";
 import { useToast } from "../hooks/use-toast";
 
-const STRIPE_PUB_KEY = import.meta.env.VITE_STRIPE_PUB_KEY || "";
+const STRIPE_PUB_KEY =  "pk_test_51THlQDIAV0Q2KvbMl0TXLQ6yGOOq1CXqexRf8NVnY1i8eqDobqDtygZ5D8mQ36Ilcs39Rwul2zqDNsbPsHoHmhxB00DjwZownr";
 
 type ToastMessage = {
   title: string;

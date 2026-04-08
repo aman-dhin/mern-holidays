@@ -33,6 +33,7 @@ const MainNav = () => {
       <Link to="/my-hotels" className={navLinkClass}>
         My Hotels
       </Link>
+      <Link to="/wishlist" className={navLinkClass}> Wishlist</Link>
 
       <DropdownMenu>
         <DropdownMenuTrigger asChild>

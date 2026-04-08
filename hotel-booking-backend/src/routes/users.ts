@@ -71,5 +71,40 @@ router.post(
     }
   }
 );
+router.post("/wishlist/:hotelId", verifyToken, async (req: any, res) => {
+  const userId = req.userId;
+  const hotelId = req.params.hotelId;
+
+  try {
+    const user = await User.findById(userId);
+
+    if (!user) return res.status(404).json({ message: "User not found" });
+
+    const exists = user.wishlist.includes(hotelId);
+
+    if (exists) {
+      user.wishlist = user.wishlist.filter(
+        (id: any) => id.toString() !== hotelId
+      );
+    } else {
+      user.wishlist.push(hotelId);
+    }
+
+    await user.save();
+
+    res.json({ wishlist: user.wishlist });
+  } catch (error) {
+    res.status(500).json({ message: "Error updating wishlist" });
+  }
+});
+router.get("/wishlist", verifyToken, async (req: any, res) => {
+  try {
+    const user = await User.findById(req.userId).populate("wishlist");
+
+    res.json(user?.wishlist || []);
+  } catch {
+    res.status(500).json({ message: "Error fetching wishlist" });
+  }
+});
 
 export default router;

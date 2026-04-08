@@ -49,7 +49,7 @@ const AuthCallback = () => {
         type: "SUCCESS",
       });
       navigate("/");
-      window.location.reload();
+     
     } else {
       navigate("/sign-in");
     }

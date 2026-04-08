@@ -3,7 +3,7 @@ import AdvancedSearch from "./AdvancedSearch";
 
 const Hero = ({ onSearch }: { onSearch: (searchData: any) => void }) => {
   return (
-    <section className="relative bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 overflow-hidden">
+    <section className="relative bg-gradient-to-r from-purple-500 to-pink-500 overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:60px_60px]" />
       <div className="absolute inset-0 bg-gradient-to-r from-primary-600/20 to-transparent" />
@@ -25,9 +25,9 @@ const Hero = ({ onSearch }: { onSearch: (searchData: any) => void }) => {
           </div>
 
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-            Find Your Perfect
+          Travel Smart 
             <span className="block bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
-              Dream Stay
+            Stay Better
             </span>
           </h1>
 

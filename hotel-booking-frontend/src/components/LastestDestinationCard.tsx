@@ -2,24 +2,41 @@ import { Link } from "react-router-dom";
 import { HotelType } from "../../../shared/types";
 import { MapPin, Star, Users } from "lucide-react";
 import { Badge } from "./ui/badge";
-
+import { useState } from "react";
+import { toggleWishlist } from "../api-client";
 type Props = {
   hotel: HotelType;
 };
 
 const LatestDestinationCard = ({ hotel }: Props) => {
+  const [saved, setSaved] = useState(false);
   return (
+   
     <Link
       to={`/detail/${hotel._id}`}
       className="group relative cursor-pointer overflow-hidden rounded-2xl shadow-soft transition-all duration-300 hover:shadow-large hover:scale-105 bg-white flex flex-col w-full h-[350px] border border-gray-10"
       style={{ minWidth: 320, maxWidth: 500 }}
     >
       <div className="w-full h-full relative">
+        {/* ❤️ Wishlist Button */}
+<div className="absolute bottom-4 right-4 z-50">
+  <button
+    onClick={ async (e) => {
+      e.preventDefault(); // IMPORTANT
+      await toggleWishlist(hotel._id);
+      setSaved(!saved);
+    }}
+    className="bg-white p-2 rounded-full shadow-lg text-red-500 text-xl hover:scale-110 transition"
+  >
+    {saved ? "❤️" : "🤍"}
+  </button>
+</div>
         <img
           src={hotel.imageUrls[0]}
           className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-110"
           style={{ minHeight: 350, maxHeight: 350 }}
         />
+
 
         {/* Overlay Gradient */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
