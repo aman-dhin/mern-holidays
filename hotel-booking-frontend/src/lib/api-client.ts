@@ -3,28 +3,7 @@ import Cookies from "js-cookie";
 
 // Define base URL based on environment
 const getBaseURL = () => {
-  if (import.meta.env.VITE_API_BASE_URL) {
-    return import.meta.env.VITE_API_BASE_URL;
-  }
-
-  // Fallback URLs (production domains)
-  if (
-    window.location.hostname === "mern-booking-hotel.netlify.app" ||
-    window.location.hostname.includes("vercel.app")
-  ) {
-    return "https://hotel-booking-backend.duckdns.org";
-  }
-
-  if (
-    window.location.hostname === "localhost" ||
-    window.location.hostname === "127.0.0.1" ||
-    window.location.hostname === "::1"
-  ) {
-    return "http://localhost:5001";
-  }
-
-  // Default to production (VPS backend)
-  return "https://hotel-booking-backend.duckdns.org";
+  return import.meta.env.VITE_API_BASE_URL || "https://mern-holidays-1u1j.onrender.com";
 };
 
 export const getApiBaseUrl = getBaseURL;
