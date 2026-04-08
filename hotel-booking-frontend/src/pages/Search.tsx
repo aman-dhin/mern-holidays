@@ -225,7 +225,7 @@ const Search = () => {
           ) : (
             <>
               {hotelData?.data.map(
-                (hotel: import("../../../shared/types").HotelType) => (
+                (hotel: import("../shared/types").HotelType) => (
                   <SearchResultsCard key={hotel._id} hotel={hotel} />
                 )
               )}
