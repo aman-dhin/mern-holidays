@@ -3,7 +3,7 @@ import Cookies from "js-cookie";
 
 // Define base URL based on environment
 const getBaseURL = () => {
-  return import.meta.env.VITE_API_BASE_URL || "https://mern-holidays-backend-2.onrender.com"  ;
+  return import.meta.env.VITE_API_BASE_URL || "https://mern-holidays-1u1j.onrender.com"  ;
 };
 
 export const getApiBaseUrl = getBaseURL;
