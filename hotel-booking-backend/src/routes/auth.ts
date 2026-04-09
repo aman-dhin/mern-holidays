@@ -32,7 +32,7 @@ router.get("/google", (req: Request, res: Response) => {
     return res.status(500).json({ message: "Google OAuth not configured" });
   }
   const state = crypto.randomBytes(32).toString("hex");
-  const redirectUri = `${BACKEND_URL}/api/auth/callback/google`;
+  const redirectUri = `${BACKEND_URL}/api/auth/google/callback`;
   const scope = "openid email profile";
   const url = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${GOOGLE_CLIENT_ID}&redirect_uri=${encodeURIComponent(redirectUri)}&response_type=code&scope=${encodeURIComponent(scope)}&state=${state}&access_type=offline&prompt=consent`;
   res.redirect(url);
@@ -62,7 +62,7 @@ router.get("/callback/google", async (req: Request, res: Response) => {
   }
 
   try {
-    const redirectUri = `${BACKEND_URL}/api/auth/callback/google`;
+    const redirectUri = `${BACKEND_URL}/api/auth/google/callback`;
     const tokenRes = await fetch("https://oauth2.googleapis.com/token", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
