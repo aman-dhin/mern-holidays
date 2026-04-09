@@ -122,7 +122,7 @@ router.get("/callback/google", async (req: Request, res: Response) => {
       { expiresIn: "1d" }
     );
 
-    const redirectUrl = new URL(`${FRONTEND_URL}/auth/callback`);
+    const redirectUrl = new URL(`${FRONTEND_URL}/sign-in`);
     redirectUrl.searchParams.set("token", token);
     redirectUrl.searchParams.set("userId", String(user._id));
     redirectUrl.searchParams.set("email", user.email);

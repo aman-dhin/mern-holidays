@@ -8,6 +8,7 @@ import { Mail, Lock, Eye, EyeOff, LogIn, Sparkles } from "lucide-react";
 import { useState } from "react";
 import { Button } from "../components/ui/button";
 import { Input } from "../components/ui/input";
+import { useEffect } from "react";
 import {
   Select,
   SelectContent,
@@ -47,7 +48,18 @@ const SignIn = () => {
   const [selectedRole, setSelectedRole] = useState<string>("");
 
   const location = useLocation();
-
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+  
+    const token = params.get("token");
+  
+    if (token) {
+      localStorage.setItem("token", token);
+  
+      // redirect to home
+      window.location.href = "/";
+    }
+  }, [location]);
   const {
     register,
     formState: { errors },
