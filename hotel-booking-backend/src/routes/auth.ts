@@ -8,8 +8,8 @@ import verifyToken from "../middleware/auth";
 
 const router = express.Router();
 
-const GOOGLE_CLIENT_ID = process.env.GOOGLE_ID;
-const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_SECRET;
+const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLEINT_ID;
+const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET;
 const FRONTEND_URL = (process.env.FRONTEND_URL || "http://localhost:5174").replace(
   /\/$/,
   ""
