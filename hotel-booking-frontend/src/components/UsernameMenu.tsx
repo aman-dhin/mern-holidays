@@ -23,7 +23,6 @@ const getAvatarUrl = () => {
 const UsernameMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [imgError, setImgError] = useState(false);
-
   const email = localStorage.getItem("user_email");
   const name = localStorage.getItem("user_name");
 
@@ -32,11 +31,11 @@ const UsernameMenu = () => {
     : getAvatarUrl();
 
   const handleMenuClick = () => setIsOpen(false);
+  const { logout } = useAppContext();
 
-  const handleLogout = async () => {
-    await apiClient.signOut();
-    setIsOpen(false);
-    window.location.href = "/";
+  const handleLogout = () => {
+    logout(); // 🔥 token remove + state update
+    window.location.reload(); // 🔥 UI refresh
   };
 
   return (
