@@ -122,7 +122,12 @@ export const addMyHotel = async (hotelFormData: FormData) => {
 };
 
 export const fetchMyHotels = async (): Promise<HotelType[]> => {
-  const response = await axiosInstance.get("/api/my-hotels");
+  const token = localStorage.getItem("token");
+  const response = await axiosInstance.get("/api/my-hotels",{
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
   return response.data;
 };
 
