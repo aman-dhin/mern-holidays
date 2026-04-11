@@ -40,6 +40,7 @@ const testAccounts = {
 };
 
 const SignIn = () => {
+  const { login } = useAppContext();
   const { showToast } = useAppContext();
   const navigate = useNavigate();
   const queryClient = useQueryClient();
@@ -55,9 +56,8 @@ const SignIn = () => {
   
     if (token) {
       localStorage.setItem("token", token);
-  
-      // redirect to home
-      window.location.href = "/";
+      login(); // 🔥 IMPORTANT
+      window.location.replace("/");
     }
   }, [location]);
   const {

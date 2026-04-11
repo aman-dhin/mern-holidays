@@ -2,6 +2,7 @@ import { Button } from "./ui/button";
 import UsernameMenu from "./UsernameMenu";
 import { Link } from "react-router-dom";
 import useAppContext from "../hooks/useAppContext";
+import { useEffect, useState } from "react";
 import {
   DropdownMenu,
   DropdownMenuContent,
