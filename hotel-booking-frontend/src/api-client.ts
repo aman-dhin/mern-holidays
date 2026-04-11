@@ -110,9 +110,12 @@ export const clearAllStorage = () => {
 };
 
 export const addMyHotel = async (hotelFormData: FormData) => {
+  const token = localStorage.getItem("token");
   const response = await axiosInstance.post("/api/my-hotels", hotelFormData, {
+    
     headers: {
       "Content-Type": "multipart/form-data",
+      Authorization: `Bearer ${token}`,
     },
   });
   return response.data;
