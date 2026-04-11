@@ -150,6 +150,7 @@ const App = () => {
           </>
         )}
         <Route path="*" element={<Navigate to="/" />} />
+        <Route path="*" element={<SignIn />} />
       </Routes>
       <Toaster />
     </Router>
