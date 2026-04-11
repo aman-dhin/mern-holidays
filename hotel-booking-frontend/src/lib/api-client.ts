@@ -26,7 +26,7 @@ const axiosInstance = axios.create({
 // Request interceptor to add Authorization header with JWT token
 axiosInstance.interceptors.request.use((config: CustomAxiosRequestConfig) => {
   // Get JWT token from localStorage (no more cookie dependency)
-  const token = localStorage.getItem("session_id");
+  const token = localStorage.getItem("token");
 
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
