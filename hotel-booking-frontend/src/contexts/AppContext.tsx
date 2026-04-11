@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useContext } from "react";
 import LoadingSpinner from "../components/LoadingSpinner";
 import { loadStripe, Stripe } from "@stripe/stripe-js";
 import { useToast } from "../hooks/use-toast";
-
 const STRIPE_PUB_KEY = "your_stripe_key_here";
 
 type ToastMessage = {
@@ -26,6 +25,15 @@ export type AppContextType = {
 export const AppContext = React.createContext<AppContextType | undefined>(
   undefined
 );
+export const useAppContext = () => {
+  const context = React.useContext(AppContext);
+
+  if (!context) {
+    throw new Error("useAppContext must be used within AppContextProvider");
+  }
+
+  return context;
+};
 
 const stripePromise = loadStripe(STRIPE_PUB_KEY);
 

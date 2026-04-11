@@ -10,6 +10,7 @@ import { Button } from "./ui/button";
 import { useState } from "react";
 import * as apiClient from "../api-client";
 import { Plus, LogOut, Building2 } from "lucide-react";
+import {  useAppContext } from "../contexts/AppContext";
 
 const getAvatarUrl = () => {
   const image = localStorage.getItem("user_image");
