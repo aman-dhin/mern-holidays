@@ -42,7 +42,7 @@ const MyHotels = () => {
     {
       onError: () => {},
       loadingMessage: "Loading your hotels...",
-      enabled: isLoggedIn,
+      enabled: false,
     },
   );
 
