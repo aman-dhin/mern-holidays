@@ -2,7 +2,7 @@ import React, { useState, useEffect,useContext } from "react";
 import LoadingSpinner from "../components/LoadingSpinner";
 import { loadStripe, Stripe } from "@stripe/stripe-js";
 import { useToast } from "../hooks/use-toast";
-const STRIPE_PUB_KEY = "your_stripe_key_here";
+const STRIPE_PUB_KEY = "pk_test_51THlQDIAV0Q2KvbMl0TXLQ6yGOOq1CXqexRf8NVnY1i8eqDobqDtygZ5D8mQ36Ilcs39Rwul2zqDNsbPsHoHmhxB00DjwZownr";
 
 type ToastMessage = {
   title: string;
